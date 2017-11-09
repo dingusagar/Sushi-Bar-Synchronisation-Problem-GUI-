@@ -57,12 +57,6 @@ public class mainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        seatPanel = new javax.swing.JPanel();
-        seat1 = new javax.swing.JLabel();
-        seat2 = new javax.swing.JLabel();
-        seat3 = new javax.swing.JLabel();
-        seat4 = new javax.swing.JLabel();
-        seat5 = new javax.swing.JLabel();
         waitingPanel = new javax.swing.JPanel();
         waiting1 = new javax.swing.JLabel();
         waiting2 = new javax.swing.JLabel();
@@ -71,52 +65,19 @@ public class mainForm extends javax.swing.JFrame {
         waiting5 = new javax.swing.JLabel();
         waiting6 = new javax.swing.JLabel();
         waiting7 = new javax.swing.JLabel();
+        seatPanel = new javax.swing.JPanel();
+        seat1 = new javax.swing.JLabel();
+        seat2 = new javax.swing.JLabel();
+        seat3 = new javax.swing.JLabel();
+        seat4 = new javax.swing.JLabel();
+        seat5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        seat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
-        seat1.setText("1");
-
-        seat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
-        seat2.setText("2");
-
-        seat3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
-        seat3.setText("3");
-
-        seat4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
-        seat4.setText("4");
-
-        seat5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
-        seat5.setText("5");
-
-        javax.swing.GroupLayout seatPanelLayout = new javax.swing.GroupLayout(seatPanel);
-        seatPanel.setLayout(seatPanelLayout);
-        seatPanelLayout.setHorizontalGroup(
-            seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(seatPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(seat1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seat2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seat3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seat4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seat5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        seatPanelLayout.setVerticalGroup(
-            seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seatPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(seat5)
-                    .addComponent(seat4)
-                    .addComponent(seat3)
-                    .addComponent(seat2)
-                    .addComponent(seat1))
-                .addContainerGap())
-        );
+        waitingPanel.setBackground(new java.awt.Color(255, 255, 255));
+        waitingPanel.setOpaque(false);
 
         waiting1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/wait.jpg"))); // NOI18N
         waiting1.setText("1");
@@ -144,59 +105,107 @@ public class mainForm extends javax.swing.JFrame {
         waitingPanelLayout.setHorizontalGroup(
             waitingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(waitingPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(waiting6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(80, 80, 80)
                 .addComponent(waiting7, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(waiting2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(waiting3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(waiting4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(waiting1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(waiting5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addGroup(waitingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(waiting3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(waitingPanelLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(waiting1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(waitingPanelLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(waiting4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(waitingPanelLayout.createSequentialGroup()
+                .addGap(480, 480, 480)
+                .addComponent(waiting5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(waiting6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(waitingPanelLayout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(waiting2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         waitingPanelLayout.setVerticalGroup(
             waitingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, waitingPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(waitingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(waiting1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(waiting2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(waiting3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(waiting4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(waiting5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(waiting6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(waiting7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(waiting7)
+            .addComponent(waiting3)
+            .addComponent(waiting1)
+            .addComponent(waiting4)
+            .addComponent(waiting5)
+            .addComponent(waiting6)
+            .addComponent(waiting2)
         );
+
+        seatPanel.setBackground(new java.awt.Color(102, 0, 204));
+        seatPanel.setOpaque(false);
+
+        seat1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
+        seat1.setText("1");
+
+        seat2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
+        seat2.setText("2");
+
+        seat3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
+        seat3.setText("3");
+
+        seat4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
+        seat4.setText("4");
+
+        seat5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/eating.gif"))); // NOI18N
+        seat5.setText("5");
+
+        javax.swing.GroupLayout seatPanelLayout = new javax.swing.GroupLayout(seatPanel);
+        seatPanel.setLayout(seatPanelLayout);
+        seatPanelLayout.setHorizontalGroup(
+            seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(seatPanelLayout.createSequentialGroup()
+                .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(seatPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(seat2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(seat1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(92, 92, 92)
+                .addGroup(seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(seatPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(seat5, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(seat4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(seatPanelLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(seat3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        seatPanelLayout.setVerticalGroup(
+            seatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(seat2)
+            .addComponent(seat1)
+            .addComponent(seat5)
+            .addComponent(seat4)
+            .addComponent(seat3)
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/background.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(waitingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(waitingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
-                .addComponent(waitingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(50, 50, 50)
+                .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(380, 380, 380)
+                .addComponent(waitingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -251,6 +260,7 @@ public class mainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel seat1;
     private javax.swing.JLabel seat2;
     private javax.swing.JLabel seat3;

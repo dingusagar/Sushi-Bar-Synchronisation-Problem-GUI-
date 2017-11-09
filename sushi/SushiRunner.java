@@ -51,7 +51,11 @@ public class SushiRunner implements Runnable{
     {      
         sushibar.setWaiting(sushibar.getWaiting() + 1 );
         System.out.println("Waiting customer : " + threadName);
-        form.addPersonWaiting();
+            try {
+                form.addPersonWaiting();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(SushiRunner.class.getName()).log(Level.SEVERE, null, ex);
+            }
         sushibar.release_sem_mutex();     
         sushibar.acquire_sem_block();
         
@@ -65,7 +69,11 @@ public class SushiRunner implements Runnable{
 //    Eating time...
     System.out.println("Eating Customer : " + threadName);
     form.removePersonWaiting();
-    form.addCustomerToTable();
+        try {
+            form.addCustomerToTable();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(SushiRunner.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
         try {
             Thread.sleep(10000);
