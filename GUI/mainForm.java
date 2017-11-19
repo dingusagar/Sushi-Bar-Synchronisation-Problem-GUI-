@@ -3,11 +3,25 @@ package GUI;
 
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
 import sushi.SushiBar;
 
 /*
@@ -71,10 +85,18 @@ public class mainForm extends javax.swing.JFrame {
         seat3 = new javax.swing.JLabel();
         seat4 = new javax.swing.JLabel();
         seat5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        dyningText = new javax.swing.JLabel();
+        waitingText = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         waitingPanel.setBackground(new java.awt.Color(255, 255, 255));
         waitingPanel.setOpaque(false);
@@ -135,6 +157,8 @@ public class mainForm extends javax.swing.JFrame {
             .addComponent(waiting2)
         );
 
+        getContentPane().add(waitingPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
+
         seatPanel.setBackground(new java.awt.Color(102, 0, 204));
         seatPanel.setOpaque(false);
 
@@ -182,34 +206,29 @@ public class mainForm extends javax.swing.JFrame {
             .addComponent(seat3)
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/background.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        getContentPane().add(seatPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, 160));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(waitingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(seatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(380, 380, 380)
-                .addComponent(waitingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        dyningText.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        dyningText.setForeground(new java.awt.Color(204, 204, 204));
+        dyningText.setText("All Seats are free right now");
+        getContentPane().add(dyningText, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 650, 30));
+
+        waitingText.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        waitingText.setForeground(new java.awt.Color(204, 204, 204));
+        waitingText.setText("No one is waiting");
+        getContentPane().add(waitingText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, -1, -1));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/background.jpg"))); // NOI18N
+        background.setText("jLabel1");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+      playaudio();   
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -260,7 +279,8 @@ public class mainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel dyningText;
     private javax.swing.JLabel seat1;
     private javax.swing.JLabel seat2;
     private javax.swing.JLabel seat3;
@@ -275,6 +295,7 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JLabel waiting6;
     private javax.swing.JLabel waiting7;
     private javax.swing.JPanel waitingPanel;
+    private javax.swing.JLabel waitingText;
     // End of variables declaration//GEN-END:variables
 
     public void addCustomerToTable() throws InterruptedException {
@@ -287,6 +308,11 @@ public class mainForm extends javax.swing.JFrame {
             seatTaken[i] = true;
              Thread.sleep(sleepDuration);
             seatPanel.getComponent(i).setVisible(true);
+            int c = getNoOfPeopleDining();
+            if(c == 1)
+                dyningText.setText(c + " person is dining . " + (NoOfSeats -c) + " seats are free");
+            else
+                dyningText.setText(c + " people are dining together. " + (NoOfSeats -c) + " seats are free");
     
             return ;
 
@@ -305,6 +331,7 @@ public class mainForm extends javax.swing.JFrame {
         {
             seatTaken[i] = false;
             seatPanel.getComponent(i).setVisible(false);
+            dyningText.setText("");
            
             return ;
 
@@ -322,6 +349,11 @@ public class mainForm extends javax.swing.JFrame {
             waiting[i] = true;
              Thread.sleep(sleepDuration);
             waitingPanel.getComponent(i).setVisible(true);
+            int c  = getNoOfPeopleWaiting();
+            if(c == 1)
+                 waitingText.setText(c + " person is waiting outside.");
+            else
+                 waitingText.setText(c + " people are waiting outside.");
             return ;
 
         } 
@@ -335,9 +367,104 @@ public class mainForm extends javax.swing.JFrame {
         {
             waiting[i] = false;
             waitingPanel.getComponent(i).setVisible(false);
+            int c  = getNoOfPeopleWaiting();
+            if(c == 1)
+                 waitingText.setText(c + " person is waiting outside.");
+            else
+                 waitingText.setText(c + " people are waiting outside.");
             return ;
 
         } 
       }
+    }
+    
+    public int getNoOfPeopleDining()
+    {
+        int c =0;
+        for(int i=0;i< NoOfSeats;i++)
+      {
+        if(seatTaken[i])
+        {
+            c++;
+
+        } 
+      }
+        
+        return c;
+    }
+    
+    public int getNoOfPeopleWaiting()
+    {
+        int c =0;
+        for(int i=0;i< MaxWaiting;i++)
+      {
+        if(waiting[i])
+        {
+            c++;
+
+        } 
+      }
+        
+        return c;
+    }
+
+    private void playaudio() {
+       
+        try {
+            
+//        AudioPlayer MGP = AudioPlayer.player;
+//        AudioStream BGM;
+//        AudioData MD;
+//        ContinuousAudioDataStream loop = null;
+//        try{
+//        BGM = new AudioStream((InputStream)new FileInputStream("/home/dingu/newBackground.mp3"));
+//        MD = BGM.getData();
+//        loop = new ContinuousAudioDataStream(MD);
+//        }catch(IOException error){
+//        System.out.print("file not found : " +error);
+//        }
+//        MGP.start(loop);
+
+
+//        Clip clip = null;
+//        try {
+//            clip = AudioSystem.getClip();
+//        } catch (LineUnavailableException ex) {
+//            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        AudioInputStream inputStream = AudioSystem.getAudioInputStream(SoundManager.class.getResourceAsStream("C://temp/my.mp3"));
+//        try {
+//            clip.open(inputStream);
+//        } catch (LineUnavailableException ex) {
+//            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        clip.start(); 
+
+
+File file = new File("/home/dingu/newBackground.wav");
+AudioInputStream audioStream = null;
+try {
+    audioStream = AudioSystem.getAudioInputStream(file);
+} catch (UnsupportedAudioFileException ex) {
+    Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+} catch (IOException ex) {
+    Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+}
+
+AudioFormat format = audioStream.getFormat();
+DataLine.Info info = new DataLine.Info(Clip.class, format);
+Clip audioClip = (Clip) AudioSystem.getLine(info);
+
+audioClip.open(audioStream);
+audioClip.start();
+
+        } catch (LineUnavailableException ex) {
+            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }
