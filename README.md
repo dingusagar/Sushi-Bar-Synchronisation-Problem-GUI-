@@ -12,4 +12,5 @@ Only then he can sit.<br>
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=ks26LrXpD7U"><img src="https://img.youtube.com/vi/ks26LrXpD7U/0.jpg" alt="IMAGE ALT TEXT"></a>
+  <b>Check out this video !!</b>
 </div>
