@@ -10,8 +10,6 @@ But if he finds all the seats occupied, then he has to wait for all the 5 people
 Only then he can sit.<br>
 </p>
 
-
-
-        [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ks26LrXpD7U/0.jpg)]
-        (https://www.youtube.com/watch?v=ks26LrXpD7U)
-
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=ks26LrXpD7U"><img src="https://img.youtube.com/vi/ks26LrXpD7U/0.jpg" alt="IMAGE ALT TEXT"></a>
+</div>
