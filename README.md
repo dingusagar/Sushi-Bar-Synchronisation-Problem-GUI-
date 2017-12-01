@@ -11,8 +11,6 @@ Only then he can sit.<br>
 </p>
 
 
-<div align="center">
-    <iframe width="620" height="315"
+
         [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ks26LrXpD7U/0.jpg)]
-    </iframe>
-</div>
+
